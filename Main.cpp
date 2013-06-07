@@ -17,7 +17,7 @@ int main(void) {
 
 	// Create the two input vectors
 	int i;
-	const int LIST_SIZE = 25000000;
+	const int LIST_SIZE = 25000;
 	int *A = (int*)malloc(sizeof(int)*LIST_SIZE);
 	int *B = (int*)malloc(sizeof(int)*LIST_SIZE);
 	int *CB = (int*)malloc(sizeof(int)*LIST_SIZE);
@@ -51,7 +51,10 @@ int main(void) {
 	cl_uint ret_num_devices;
 	cl_uint ret_num_platforms;
 	cl_int ret = clGetPlatformIDs(1, &platform_id, &ret_num_platforms);
-	ret = clGetDeviceIDs( platform_id, CL_DEVICE_TYPE_DEFAULT, 1, 
+	// CL_DEVICE_TYPE_DEFAULT
+	// CL_DEVICE_TYPE_CPU
+	// CL_DEVICE_TYPE_GPU
+	ret = clGetDeviceIDs( platform_id, CL_DEVICE_TYPE_CPU, 1, 
 		&device_id, &ret_num_devices);
 
 	// Create an OpenCL context
